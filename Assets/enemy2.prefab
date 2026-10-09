@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7125949805336041520}
   - component: {fileID: 6320027254180269729}
   - component: {fileID: 4700170305983007730}
+  - component: {fileID: 3113155371503740428}
   m_Layer: 0
   m_Name: enemy2
   m_TagString: Untagged
@@ -104,5 +105,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce92c4549f865cd48b00db9d131c6301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Hunt
-  player: {fileID: 4551795238300158271, guid: 58cf8a3ff666a294abdaadd3f42f755a, type: 3}
   speed: 3
+  target: {fileID: 0}
+--- !u!114 &3113155371503740428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567820479329221152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8596481f64dba85428284bbb1b10f7ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemyhealth
+  maxHealth: 100
