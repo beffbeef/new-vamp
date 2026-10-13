@@ -1,37 +1,20 @@
+
 using UnityEngine;
 
-public class enemyhealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
+    public int health = 100;
 
-    [Header("Health Settings")]
-    public float maxHealth = 100f;
-    private float currentHealth;
-    
-
-
-    void Start()
+    public void TakeDamage(int damage)
     {
-        currentHealth = maxHealth;
-    }
+        health = health - damage;
 
-    public void TakeDamage(float amount)
-    {
-        currentHealth -= amount;
-        Debug.Log(gameObject.name + "took" + amount + "damage. Current health:" + currentHealth);
+        Debug.Log("Enemy health: " + health);
 
-        if (currentHealth <= 0)
+        if (health <= 0)
         {
-            Die();
+            Destroy(gameObject);
         }
     }
-
-    private void Die()
-    {
-        Destroy(gameObject);
-    }
-
-    void Update()
-    {
-        
-    }
 }
+

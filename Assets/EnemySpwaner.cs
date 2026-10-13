@@ -8,11 +8,11 @@ public class EnemySpwaner : MonoBehaviour
     [SerializeField] private GameObject enemy2Prefab;
     [SerializeField] private GameObject enemy3Prefab;
 
-    [SerializeField] private float enemy1Interval = 3.5f;
+    [SerializeField] private float enemy1Interval = 4f;
 
-    [SerializeField] private float enemy2Interval = 5f;
+    [SerializeField] private float enemy2Interval = 10f;
 
-    [SerializeField] private float enemy3Interval = 10f;
+    [SerializeField] private float enemy3Interval = 15f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
