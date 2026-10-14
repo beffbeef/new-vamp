@@ -4,31 +4,28 @@ public class health : MonoBehaviour
 {
 
     [Header("Health Settings")]
-    public float maxHealth = 100f;
-    private float currentHealth;
+    public int Health = 100;
+    private int currentHealth;
     
 
 
     void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = Health;
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(int damage)
     {
-        currentHealth -= amount;
-        Debug.Log(gameObject.name + "took" + amount + "damage. Current health:" + currentHealth);
+        Health = Health - damage;
+        Debug.Log("Player health: " + Health);
 
         if (currentHealth <= 0)
         {
-            Die();
+            Destroy(gameObject);
         }
     }
 
-    private void Die()
-    {
-        Destroy(gameObject);
-    }
+   
 
     void Update()
     {

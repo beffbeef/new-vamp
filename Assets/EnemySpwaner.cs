@@ -8,7 +8,7 @@ public class EnemySpwaner : MonoBehaviour
     [SerializeField] private GameObject enemy2Prefab;
     [SerializeField] private GameObject enemy3Prefab;
 
-    [SerializeField] private float enemy1Interval = 4f;
+    [SerializeField] private float enemy1Interval = 6f;
 
     [SerializeField] private float enemy2Interval = 10f;
 
