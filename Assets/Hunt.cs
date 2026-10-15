@@ -8,21 +8,29 @@ public class Hunt : MonoBehaviour
     public Transform target;
     private float distance;
 
+    private Rigidbody2D rb;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        rb = GetComponent<Rigidbody2D>();
+
         target = GameObject.Find("player").transform;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        distance = Vector2.Distance(transform.position, target.position);
-        Vector2 direction = target.position - transform.position;
+        if (target == null) return;
 
-        transform.position = Vector2.MoveTowards(this.transform.position, target.position, speed * Time.deltaTime);
+        
+        Vector2 direction = ((Vector2)target.position - (Vector2)transform.position).normalized;
+
+        
+        rb.linearVelocity = direction * speed;
 
     }
 }

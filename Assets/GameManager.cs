@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
 
     public GameObject gameOverUI;
+  
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,7 +21,14 @@ public class GameManager : MonoBehaviour
 
     public void gameOver()
     {
+
+
         gameOverUI.SetActive(true);
+        
+
+        Time.timeScale = 0f;
+
+
     }
 
 }

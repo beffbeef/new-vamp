@@ -11,29 +11,49 @@ public class health : MonoBehaviour
     private bool isDead;
 
     public GameManager gameManager;
+    
+    
+    
+    
     void Start()
     {
         currentHealth = Health;
     }
 
+    
+    
+    
     public void TakeDamage(int damage)
     {
-        Health = Health - damage;
-        Debug.Log("Player health: " + Health);
+        if (isDead) return; 
 
+        currentHealth -= damage;
+
+        Debug.Log("Player health: " + currentHealth);
+
+        if(currentHealth <= 0)
+        {
+            Die();
+        }
        
     }
 
-    private void Update()
+   
+    
+    private void Die()
     {
-        if (currentHealth <= 0 && !isDead)
+        isDead = true;
+        
+        Debug.Log("Dead");
+
+       
+        if (gameManager != null) 
         {
-            isDead = true;
-            gameObject.SetActive(false);
             gameManager.gameOver();
 
-            Debug.Log("Dead");
         }
+        
+       
     }
 
 }
