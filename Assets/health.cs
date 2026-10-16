@@ -1,59 +1,67 @@
-using UnityEngine;
 
+using UnityEngine;
 
 public class health : MonoBehaviour
 {
-
     [Header("Health Settings")]
-    public int Health = 100;
+    public int maxHealth = 100;
     private int currentHealth;
 
     private bool isDead;
 
     public GameManager gameManager;
-    
-    
-    
-    
+    public HealthBar healthBar;
+
     void Start()
     {
-        currentHealth = Health;
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
-    
-    
-    
     public void TakeDamage(int damage)
     {
-        if (isDead) return; 
+        if (isDead) return;
 
         currentHealth -= damage;
 
+        
+        if (currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
+
+        
+        healthBar.SetHealth(currentHealth);
+
         Debug.Log("Player health: " + currentHealth);
 
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
-       
     }
 
-   
-    
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        healthBar.SetHealth(currentHealth);
+    }
+
     private void Die()
     {
         isDead = true;
-        
+
         Debug.Log("Dead");
 
-       
-        if (gameManager != null) 
+        if (gameManager != null)
         {
             gameManager.gameOver();
-
         }
-        
-       
     }
-
 }

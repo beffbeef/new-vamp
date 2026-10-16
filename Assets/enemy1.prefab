@@ -122,6 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemyhealth
   health: 200
+  xpReward: 5
+  playerLevel: {fileID: 0}
 --- !u!61 &349317011230942842
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,6 +183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
   damage: 10
+  damageCooldown: 0.5
+  playerPrefab: {fileID: 4551795238300158271, guid: 58cf8a3ff666a294abdaadd3f42f755a, type: 3}
 --- !u!50 &-1719632844368344952
 Rigidbody2D:
   serializedVersion: 5
