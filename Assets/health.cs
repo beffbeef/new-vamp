@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class health : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class health : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
 
+    public GameObject aimpointer;
     private bool isDead;
 
     public GameManager gameManager;
@@ -53,6 +55,9 @@ public class health : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
+
+
+
     private void Die()
     {
         isDead = true;
@@ -62,6 +67,16 @@ public class health : MonoBehaviour
         if (gameManager != null)
         {
             gameManager.gameOver();
+            aimpointer.SetActive(false);
+            Cursor.visible = true;
+            
         }
+        
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("Game");
+        Time.timeScale = 1.0f;
     }
 }

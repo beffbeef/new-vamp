@@ -39,7 +39,7 @@ public class PlayerShoot : MonoBehaviour
         
         firePoint.rotation = Quaternion.Euler(0, 0, angle);
 
-       
+
         if (aimPointer != null)
         {
             aimPointer.position = new Vector3(
@@ -49,7 +49,7 @@ public class PlayerShoot : MonoBehaviour
             );
         }
 
-        
+
         if (Time.time >= nextFireTime)
         {
             nextFireTime = Time.time + fireRate;
