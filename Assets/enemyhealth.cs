@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int health = 100;
+    public int expReward = 3;
 
     public void TakeDamage(int damage)
     {
@@ -13,8 +14,17 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
+            
+            PlayerLevel player = FindAnyObjectByType<PlayerLevel>();
+            if (player != null)
+            {
+                player.AddXP(expReward);
+            }
+
             Destroy(gameObject);
             ScoreManager.instance.AddPoints();
         }
+
+        
     }
 }
