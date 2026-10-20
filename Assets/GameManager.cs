@@ -1,11 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
 
     public GameObject gameOverUI;
-  
-
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,6 +19,9 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+
+   
 
     public void gameOver()
     {
