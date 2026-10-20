@@ -26,4 +26,13 @@ public class EnemyHealth : MonoBehaviour
 
         
     }
+
+    public void SpawnHealth()
+    {
+        
+    }
+
+
+
+
 }
