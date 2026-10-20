@@ -1,32 +1,46 @@
-
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerLevel : MonoBehaviour
 {
     public int level = 1;
-    public int currentXP = 0;
-    public int requiredXP = 10;
+    public float currentExp = 0;
+    public float requiredExp = 10;
 
-    public void AddXP(int xp)
+    public Slider slider;
+
+    private void Start()
     {
-        currentXP = currentXP + xp;
+       
+        slider.value = currentExp;
+        slider.maxValue =requiredExp;
+    }
+    public void AddXP(float xp)
+    {
+        currentExp = currentExp + xp;
 
-        Debug.Log("Current XP: " + currentXP);
+        slider.value = currentExp;
 
-        if (currentXP >= requiredXP)
+        Debug.Log("Current XP: " + currentExp);
+
+        if (currentExp >= requiredExp)
         {
             LevelUp();
         }
+
     }
 
     public void LevelUp()
     {
-        currentXP = currentXP - requiredXP;
+        currentExp = currentExp - requiredExp;
 
         level = level + 1;
 
-        requiredXP = requiredXP + 5;
+        requiredExp = requiredExp + 5;
+
+        slider.maxValue = requiredExp;
 
         Debug.Log("Level up! New level: " + level);
+
     }
 }

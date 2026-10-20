@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class ScoreManager : MonoBehaviour
 {
@@ -10,8 +10,8 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highscoreText;
 
-    int score =0;
-    int highscore =0;
+    float score =0;
+    float highscore =0;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class ScoreManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        highscore = PlayerPrefs.GetInt("highscore", 0);
+        highscore = PlayerPrefs.GetFloat("highscore", 0);
 
         scoreText.text = score.ToString() + " Score";
         highscoreText.text = "HIGHSCORE: " + highscore.ToString();
@@ -39,14 +39,14 @@ public class ScoreManager : MonoBehaviour
         
         if (score > highscore)
         {
-            PlayerPrefs.SetInt("highscore", score);
+            PlayerPrefs.SetFloat("highscore", score);
 
         }
 
     }
 
 
-    //Need to fix score reset
+  
 
 
 }

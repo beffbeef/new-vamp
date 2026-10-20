@@ -1,10 +1,9 @@
-
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
     public int health = 100;
-    public int expReward = 3;
+    public float expReward = 3;
 
     public void TakeDamage(int damage)
     {
