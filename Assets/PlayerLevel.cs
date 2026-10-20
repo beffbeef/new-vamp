@@ -15,13 +15,13 @@ public class PlayerLevel : MonoBehaviour
         slider.value = currentExp;
         slider.maxValue =requiredExp;
     }
-    public void AddXP(float xp)
+    public void AddEXP(float Exp)
     {
-        currentExp = currentExp + xp;
+        currentExp = currentExp + Exp;
 
         slider.value = currentExp;
 
-        Debug.Log("Current XP: " + currentExp);
+        Debug.Log("Current EXP: " + currentExp);
 
         if (currentExp >= requiredExp)
         {

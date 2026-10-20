@@ -17,7 +17,7 @@ public class EnemyHealth : MonoBehaviour
             PlayerLevel player = FindAnyObjectByType<PlayerLevel>();
             if (player != null)
             {
-                player.AddXP(expReward);
+                player.AddEXP(expReward);
             }
 
             Destroy(gameObject);
