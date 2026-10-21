@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e26b598364760842b4a6f25fe0fd3f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::movment_real
-  _moveSpeed: 5
+  _moveSpeed: 6
 --- !u!50 &3432013910524593222
 Rigidbody2D:
   serializedVersion: 5
@@ -263,7 +263,7 @@ MonoBehaviour:
   level: 1
   currentExp: 0
   requiredExp: 10
-  slider: {fileID: 0}
+  slider: {fileID: 6168758361765696997, guid: 1c577da2fb1d67947939b802e518887a, type: 3}
   bullet: {fileID: 2393872182527762963, guid: 85f622a00d1c8d14cb8d7142cb81f06b, type: 3}
   playershoot: {fileID: 1100048352450886996}
   movment_real: {fileID: 5684182430372946253}
