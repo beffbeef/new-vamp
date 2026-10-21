@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PlayerLevel : MonoBehaviour
 {
@@ -13,10 +14,10 @@ public class PlayerLevel : MonoBehaviour
 
     private void Start()
     {
-       
         slider.value = currentExp;
-        slider.maxValue =requiredExp;
+        slider.maxValue = requiredExp;
     }
+
     public void AddEXP(float Exp)
     {
         currentExp = currentExp + Exp;
@@ -29,11 +30,16 @@ public class PlayerLevel : MonoBehaviour
         {
             LevelUp();
         }
-
     }
 
     public void LevelUp()
     {
+        if (SceneManager.GetSceneByName("LevelUpHud").isLoaded)
+        {
+            Debug.LogWarning("Level-up menu is already open.");
+            return;
+        }
+
         currentExp = currentExp - requiredExp;
 
         level = level + 1;
@@ -41,38 +47,24 @@ public class PlayerLevel : MonoBehaviour
         requiredExp = requiredExp + 5;
 
         slider.maxValue = requiredExp;
+        slider.value = currentExp;
 
         Debug.Log("Level up! New level: " + level);
 
-        if (SceneManager.GetSceneByName("LevelUpHud").IsValid())
-        {
-            Debug.LogWarning("Level is alredy open. Blocking dups");
-            return;
-        }
         SceneManager.LoadScene("LevelUpHud", LoadSceneMode.Additive);
-        Time.timeScale = 0f;
-        
 
-
-
+        Time.timeScale = 0f; 
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void LeveelUpResume()
     {
-
-        SceneManager.UnloadSceneAsync("LevelUpHud");
         Time.timeScale = 1f;
 
-
+        if (SceneManager.GetSceneByName("LevelUpHud").isLoaded)
+        {
+            SceneManager.UnloadSceneAsync("LevelUpHud");
+        }
     }
-
-
-
-
-
-
-
-
-
-
 }

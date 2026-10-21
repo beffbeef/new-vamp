@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+     void Update()
     {
 
         if (SceneManager.GetSceneByName("PauseMenu").IsValid())
