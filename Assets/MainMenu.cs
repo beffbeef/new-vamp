@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
     
     private void Awake()
     {
-       
+       Time.timeScale = 1.0f;
     }
 
     public void PlayGame()

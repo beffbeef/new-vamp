@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerLevel : MonoBehaviour
@@ -8,6 +9,7 @@ public class PlayerLevel : MonoBehaviour
     public float requiredExp = 10;
 
     public Slider slider;
+    public GameObject contaner;
 
     private void Start()
     {
@@ -42,5 +44,35 @@ public class PlayerLevel : MonoBehaviour
 
         Debug.Log("Level up! New level: " + level);
 
+        if (SceneManager.GetSceneByName("LevelUpHud").IsValid())
+        {
+            Debug.LogWarning("Level is alredy open. Blocking dups");
+            return;
+        }
+        SceneManager.LoadScene("LevelUpHud", LoadSceneMode.Additive);
+        Time.timeScale = 0f;
+        
+
+
+
     }
+
+    public void LeveelUpResume()
+    {
+
+        SceneManager.UnloadSceneAsync("LevelUpHud");
+        Time.timeScale = 1f;
+
+
+    }
+
+
+
+
+
+
+
+
+
+
 }

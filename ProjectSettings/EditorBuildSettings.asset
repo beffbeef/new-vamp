@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/LevelUpHud.unity
+    guid: 6cb14e1293e3bb247a974cd9d19bd930
+  - enabled: 1
+    path: Assets/Scenes/PauseMenu.unity
+    guid: 927ff1fc64706e14cb88063764750dcb
+  - enabled: 1
+    path: Assets/Scenes/gameOverUI.unity
+    guid: 69f1698b3fcd07a4cb504e461e2243a0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -16,19 +16,29 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+
+        if (SceneManager.GetSceneByName("PauseMenu").IsValid())
         {
-            contaner.SetActive(true);
-            Time.timeScale = 0f;
+            Debug.LogWarning("Pause is alredy open. Blocking dups");
+            return;
+
         }
+
+       if (Keyboard.current.escapeKey.wasPressedThisFrame)
+       {
+        SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
+        Time.timeScale = 0f;
+       }
+        
+
     }
 
     public void ResumeButton()
     {
-        
-        
-            contaner.SetActive(false);
-            Time.timeScale = 1f;
+
+
+        SceneManager.UnloadSceneAsync("PauseMenu");
+        Time.timeScale = 1f;
         
 
     }
