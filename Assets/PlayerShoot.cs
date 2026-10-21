@@ -16,6 +16,7 @@ public class PlayerShoot : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void Update()

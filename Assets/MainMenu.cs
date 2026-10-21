@@ -1,35 +1,31 @@
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    
     private void Awake()
     {
-       Time.timeScale = 1.0f;
+        Time.timeScale = 1f;
     }
 
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync("Game");
+        PlayerLevel.newRun = true;
+
+        Time.timeScale = 1f;
+
+        SceneManager.LoadScene("Game");
     }
 
     public void Mainmeny()
     {
-        SceneManager.LoadSceneAsync("MainMeny");
-    }
+        Time.timeScale = 1f;
 
+        SceneManager.LoadScene("MainMeny");
+    }
 
     public void Quit()
     {
         Application.Quit();
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

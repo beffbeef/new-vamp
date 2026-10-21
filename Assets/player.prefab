@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 1576062213594788531}
   - component: {fileID: 3386414111999200904}
   - component: {fileID: 1100048352450886996}
+  - component: {fileID: 7804626380620647587}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -62,7 +63,7 @@ Transform:
   m_GameObject: {fileID: 4551795238300158271}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.76, y: 0.11, z: 0}
+  m_LocalPosition: {x: -0.82, y: 0.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -140,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e26b598364760842b4a6f25fe0fd3f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::movment_real
-  _moveSpeed: 10
+  _moveSpeed: 5
 --- !u!50 &3432013910524593222
 Rigidbody2D:
   serializedVersion: 5
@@ -226,8 +227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8596481f64dba85428284bbb1b10f7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemyhealth
-  Health: 100
+  maxHealth: 100
+  aimpointer: {fileID: 0}
   gameManager: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!114 &1100048352450886996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,5 +245,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerShoot
   bulletPrefab: {fileID: 5103836129978374569, guid: 85f622a00d1c8d14cb8d7142cb81f06b, type: 3}
   firePoint: {fileID: 5521059222997223110}
+  aimPointer: {fileID: 0}
   bulletSpeed: 10
   fireRate: 0.8
+--- !u!114 &7804626380620647587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4551795238300158271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ce013e83fc3b746a7dae9b515be56a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLevel
+  level: 1
+  currentExp: 0
+  requiredExp: 10
+  slider: {fileID: 0}
+  bullet: {fileID: 2393872182527762963, guid: 85f622a00d1c8d14cb8d7142cb81f06b, type: 3}
+  playershoot: {fileID: 1100048352450886996}
+  movment_real: {fileID: 5684182430372946253}

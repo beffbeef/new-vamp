@@ -3,7 +3,7 @@ using UnityEngine;
 public class movment_real : MonoBehaviour
 {
 
-    [SerializeField] private float _moveSpeed = 5f;
+    public float _moveSpeed = 5f;
 
     private Vector2 movement;
 
@@ -32,4 +32,5 @@ public class movment_real : MonoBehaviour
 
         rb.linearVelocity = movement * _moveSpeed;
     }
+
 }

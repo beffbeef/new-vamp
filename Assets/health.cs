@@ -25,13 +25,11 @@ public class health : MonoBehaviour
 
         currentHealth -= damage;
 
-        
         if (currentHealth < 0)
         {
             currentHealth = 0;
         }
 
-        
         healthBar.SetHealth(currentHealth);
 
         Debug.Log("Player health: " + currentHealth);
@@ -54,9 +52,6 @@ public class health : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
-
-
-
     private void Die()
     {
         isDead = true;
@@ -66,16 +61,23 @@ public class health : MonoBehaviour
         if (gameManager != null)
         {
             gameManager.gameOver();
-            aimpointer.SetActive(false);
+
+            if (aimpointer != null)
+            {
+                aimpointer.SetActive(false);
+            }
+
             Cursor.visible = true;
-            
+            Cursor.lockState = CursorLockMode.None;
         }
-        
     }
 
     public void Restart()
     {
+        PlayerLevel.newRun = true;
+
+        Time.timeScale = 1f;
+
         SceneManager.LoadScene("Game");
-        Time.timeScale = 1.0f;
     }
 }
